@@ -1,21 +1,116 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
+<div [ngClass]='classes'><h1 style='text-align: center; padding: 20px;'>All employees</h1>
+  <div style='text-align: center; padding-bottom: 20px'>
+    <button type="button" class="btn btn-primary" (click)='openAddBox()'>Add employee</button>
+    <button type="button" class="btn btn-success" (click)='refreshList();$event.target.blur()'>Refresh list</button>
+  </div>
+  <router-outlet></router-outlet>
+  <div class='mat-elevation-z8' style='margin: 0 10% 0 10%'>
+    <table class="table table-inverse">
+      <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Company name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class='contentRows' *ngFor='let employee of employees' (click)='openEditBox(employee)'>
+        <td>{{employee.firstName}}</td>
+        <td>{{employee.lastName}}</td>
+        <td>{{employee.companyEntity.name}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="http://angularjs.blogspot.ca/">Angular blog</a></h2>
-  </li>
-</ul>
 
-<router-outlet></router-outlet>
+<div class='employeeModal' *ngIf='showEditBox'>
+  <div class='row' style='padding-top: 5%'>
+    <div class='col-2'></div>
+    <div class='col-8'>
+      <div class="row" style='display: block'>
+        <div class="container">
+          <form autocomplete="off">
+            <div class="form-group">
+              <label for="formGroupExampleInput2">First name</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" [(ngModel)]='modalEmployee.firstName' name='firstName'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput3">Last name</label>
+              <input type="text" class="form-control" id="formGroupExampleInput3" [(ngModel)]='modalEmployee.lastName' name='lastName'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput4">Company</label>
+              <input type="text" class="form-control" id="formGroupExampleInput4" [(ngModel)]='modalEmployee.companyEntity.name'
+                     name='company'>
+            </div>
+            <div class='row text-center pt-4'>
+              <div class='col-4'>
+                <button type="button" class="btn btn-primary" (click)='updateEmployee(modalEmployee.id, modalEmployee)'>Apply changes
+                </button>
+              </div>
+              <div class='col-4'>
+                <button type="button" class="btn btn-success" (click)='closeEditBox()'>Cancel</button>
+              </div>
+              <div class='col-4'>
+                <button type="button" class="btn btn-danger" (click)='deleteEmployee(modalEmployee.id)'>Delete employee</button>
+              </div>
+            </div>
+            <div class='row text-center pt-3'>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div class='col-2'></div>
+
+  </div>
+</div>
+
+<div class='employeeModal' *ngIf='showAddBox'>
+  <div class='row' style='padding-top: 5%'>
+    <div class='col-2'></div>
+    <div class='col-8'>
+      <div class="row" style='display: block'>
+        <div class="container">
+          <form autocomplete="off">
+            <div class="form-group">
+              <label for="formGroupExampleInput2">First name</label>
+              <input type="text" class="form-control" [(ngModel)]='modalEmployee.firstName' name='firstName'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput3">Last name</label>
+              <input type="text" class="form-control" [(ngModel)]='modalEmployee.lastName' name='lastName'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput4">Company name</label>
+              <input type="text" class="form-control" [(ngModel)]='modalEmployee.companyEntity.name' name='company'>
+            </div>
+            <div class='row text-center pt-4'>
+              <div class='col-6'>
+                <button type="button" class="btn btn-primary" (click)='addEmployee()'>Add employee</button>
+              </div>
+              <div class='col-6'>
+                <button type="button" class="btn btn-success" (click)='closeAddBox()'>Cancel</button>
+              </div>
+            </div>
+            <div class='row text-center pt-3'>
+            </div>
+          </form>
+
+          <div *ngIf='error' class='text-center'>
+            <p>
+              <ngb-alert type='danger' [dismissible]="true" (close)="closeAlert()">
+                <strong>Error!</strong> {{errorMessage}}
+              </ngb-alert>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='col-2'></div>
+
+  </div>
+</div>
