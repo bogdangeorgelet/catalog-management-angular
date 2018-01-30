@@ -9,10 +9,16 @@ import {CdkTableModule} from '@angular/cdk/table';
 import {HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { RouterModule} from '@angular/router';
+import { MainPageComponent } from './main-page/main-page.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserLoginComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +27,21 @@ import {FormsModule} from '@angular/forms';
     MdTableModule,
     CdkTableModule,
     HttpClientModule,
-    NgbModule.forRoot(),
+    NgbModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: AppComponent
+      },
+      {
+        path:'app-user-login',
+        component: UserLoginComponent
+      },
+      {
+        path: 'app-main-page',
+        component: MainPageComponent
+      }
+   ]),
     FormsModule
   ],
   providers: [],
