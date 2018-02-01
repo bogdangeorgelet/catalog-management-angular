@@ -18,11 +18,59 @@
   border: solid 1px #aaa
 }
 
-// .content {
-//   background-color: #00aeff;  
-// }
 
 .content p {
   text-align: center;
   color:black;
 }
+
+.header-container {
+  width: 100%;
+  font-size: 17px;
+  position: fixed;
+  // background-color: #fff;
+  z-index: 9999;
+  padding-top: 15px;
+  float: left;
+}
+
+.left-col {
+  width: 50%;
+  float: left;
+  padding-left: 25px;
+}
+
+.right-col {
+  width: 50%;
+  float: right;
+  padding-top: 15px;
+}
+
+.right-col a {
+  padding: 15px;
+}
+
+.main-content-container {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  float: left;
+}
+
+.footer-container {
+  width: 100%;
+  float: left;
+}
+
+.main-content-section {
+  position: relative;
+  float: right;
+  right: 50%;
+  width: 62%;
+  top: 300px;
+}
+
+.main-content-sub-section {
+
+}
+

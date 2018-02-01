@@ -1,8 +1,27 @@
 <div class="content">
-<a routerLink="app-user-login">User Login</a>
-<a routerLink="app-main-page">Main Page</a>
-  <p>{{title}}</p>
-  <br/>
-  <br/>
-  <router-outlet></router-outlet>
+  <div class="header-container">
+    <div class="left-col">
+      <img src="./assets/images/logo.png" />
+    </div>
+    <div class="right-col">
+      <a routerLink="app-user-login">User Login</a>
+      <a routerLink="app-main-page">Main Page</a>
+      <a routerLink="">About Us</a>
+      <a routerLink="">Contact Us</a>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+  <div class="main-content-container">
+    <div></div>
+    <div>
+      <div class="main-content-section">
+        <div>
+          <h1>{{title}}</h1>
+        </div>
+      </div>
+      <div></div>
+    </div>
+    <div class="footer-container">
+    </div>
+  </div>
 </div>

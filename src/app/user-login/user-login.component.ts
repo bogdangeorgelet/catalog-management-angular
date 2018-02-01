@@ -9,7 +9,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class UserLoginComponent implements OnInit {
   formdata;
-
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -22,8 +21,8 @@ export class UserLoginComponent implements OnInit {
     });
   }
 
-  passwordValidation(formControl) {
-    if  (formControl.value.length < 5) {
+  passwordValidation(formcontrol) {
+    if  (formcontrol.value.length < 5) {
       return {"passwd" : true};
     }
   }

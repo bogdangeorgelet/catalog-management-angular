@@ -1,10 +1,9 @@
-<div class="form_container">
+<div>
     <form [formGroup]="formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
        <header>Login</header>
        <label>Username <span>*</span></label>
-       <input type="text" name="uname" formControlName="uname"/>
+       <input type="text" name="uname" formControlName="uname" placeholder="At least 6 characters"/>
        
-       <div class="help">At least 6 character</div>
        <label>Password <span>*</span></label>
        <input type="password" class="fortextbox" name="passwd" formControlName="passwd"/>
        
