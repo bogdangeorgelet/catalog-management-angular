@@ -10,14 +10,24 @@
       <tr>
         <th>First Name</th>
         <th>Last Name</th>
+        <th>Age</th>
+        <th>Years</th>
+        <th>Department</th>
+        <th>Used Tehnology</th>
         <th>Company name</th>
+        <th>Delete</th>
       </tr>
       </thead>
       <tbody>
       <tr class='contentRows' *ngFor='let employee of employees' (click)='openEditBox(employee)'>
         <td>{{employee.firstName}}</td>
         <td>{{employee.lastName}}</td>
+        <td>{{employee.age}}</td>
+        <td>{{employee.years}}</td>
+        <td>{{employee.department}}</td>
+        <td>{{employee.usedTechnology}}</td>
         <td>{{employee.companyEntity.name}}</td>
+        <td><button type="button" class="btn btn-danger" (click)='deleteEmployeeDirect(modalEmployee.id)'>Delete</button></td>
       </tr>
       </tbody>
     </table>
@@ -40,8 +50,28 @@
               <input type="text" class="form-control" id="formGroupExampleInput3" [(ngModel)]='modalEmployee.lastName' name='lastName'>
             </div>
             <div class="form-group">
-              <label for="formGroupExampleInput4">Company</label>
-              <input type="text" class="form-control" id="formGroupExampleInput4" [(ngModel)]='modalEmployee.companyEntity.name'
+              <label for="formGroupExampleInput4">Age</label>
+              <input type="text" class="form-control" id="formGroupExampleInput4" [(ngModel)]='modalEmployee.age'
+                     name='age'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput5">Years in the company</label>
+              <input type="text" class="form-control" id="formGroupExampleInput5" [(ngModel)]='modalEmployee.years'
+                     name='years'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput6">Department</label>
+              <input type="text" class="form-control" id="formGroupExampleInput6" [(ngModel)]='modalEmployee.department'
+                     name='department'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput7">Used technology</label>
+              <input type="text" class="form-control" id="formGroupExampleInput7" [(ngModel)]='modalEmployee.usedTechnology'
+                     name='usedTechnology'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput8">Company</label>
+              <input type="text" class="form-control" id="formGroupExampleInput8" [(ngModel)]='modalEmployee.companyEntity.name'
                      name='company'>
             </div>
             <div class='row text-center pt-4'>
@@ -84,7 +114,23 @@
               <input type="text" class="form-control" [(ngModel)]='modalEmployee.lastName' name='lastName'>
             </div>
             <div class="form-group">
-              <label for="formGroupExampleInput4">Company name</label>
+              <label for="formGroupExampleInput4">Age</label>
+              <input type="text" class="form-control" [(ngModel)]='modalEmployee.age' name='age'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput5">Years in the company</label>
+              <input type="text" class="form-control" [(ngModel)]='modalEmployee.years' name='years'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput6">Department</label>
+              <input type="text" class="form-control" [(ngModel)]='modalEmployee.department' name='department'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput7">Used Technology</label>
+              <input type="text" class="form-control" [(ngModel)]='modalEmployee.usedTechnology' name='usedTechnology'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput8">Company name</label>
               <input type="text" class="form-control" [(ngModel)]='modalEmployee.companyEntity.name' name='company'>
             </div>
             <div class='row text-center pt-4'>

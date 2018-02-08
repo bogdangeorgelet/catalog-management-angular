@@ -11,6 +11,6 @@ import {tokenReference} from '@angular/compiler';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent{
-  title = "Welcome to Catalog Management Application";
+  title = "Welcome to Catalxog Management Application";
 }
 

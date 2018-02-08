@@ -8,11 +8,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MainPageComponent implements OnInit {
 
+  private hostUrl = 'http://localhost:8080/employee';
   employees;
   showEditBox = false;
   showAddBox = false;
   classes;
-  modalEmployee = {id: '', firstName: '', lastName: '', companyEntity: {id: '', name: ''}};
+  modalEmployee = {id: '', firstName: '', lastName: '', age: '',years: '', department: '', usedTechnology: '', companyEntity: {id: '', name: ''}};
   error = false;
   errorMessage;
 
@@ -20,8 +21,9 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const url = `${this.hostUrl}/list`;
     // Make the HTTP request:
-    this.http.get('http://localhost:8080/employee/list').subscribe(data => {
+    this.http.get(url).subscribe(data => {
       // Read the result field from the JSON response.
       this.employees = data;
     });
@@ -33,6 +35,10 @@ export class MainPageComponent implements OnInit {
     this.modalEmployee.id = employee.id;
     this.modalEmployee.firstName = employee.firstName;
     this.modalEmployee.lastName = employee.lastName;
+    this.modalEmployee.age = employee.age;
+    this.modalEmployee.years = employee.years;
+    this.modalEmployee.department = employee.department;
+    this.modalEmployee.usedTechnology = employee.usedTechnology;
     this.modalEmployee.companyEntity.name = employee.companyEntity.name;
   }
 
@@ -43,6 +49,10 @@ export class MainPageComponent implements OnInit {
     this.modalEmployee.id = '';
     this.modalEmployee.firstName = '';
     this.modalEmployee.lastName = '';
+    this.modalEmployee.age='';
+    this.modalEmployee.years='';
+    this.modalEmployee.department='';
+    this.modalEmployee.usedTechnology='';
     this.modalEmployee.companyEntity.id = '';
     this.modalEmployee.companyEntity.name = '';
   }
@@ -53,9 +63,10 @@ export class MainPageComponent implements OnInit {
   }
 
   addEmployee() {
+    const url = `${this.hostUrl}/add`;
     this.error = false;
     const body = this.modalEmployee;
-    this.http.post('http://localhost:8080/employee/add', body).subscribe(data => {
+    this.http.post(url, body).subscribe(data => {
         this.closeAddBox();
         this.refreshList();
       },
@@ -70,27 +81,36 @@ export class MainPageComponent implements OnInit {
       'id': id,
       'firstName': updatedEmployee.firstName,
       'lastName': updatedEmployee.lastName,
+      'age': updatedEmployee.age,
+      'years': updatedEmployee.years,
+      'department': updatedEmployee.department,
+      'usedTechnology': updatedEmployee.usedTechnology,
       'companyEntity': {
         'id': 1,
         'name': 'Fortech'
       }
     };
-    this.http.put('http://localhost:8080/employee/' + id, body).subscribe(data => {
+    this.http.put(this.hostUrl + id, body).subscribe(data => {
       this.closeEditBox();
       this.refreshList();
     });
   }
 
   deleteEmployee(id) {
-    this.http.delete('http://localhost:8080/employee/' + id).subscribe(data => {
+    this.http.delete(this.hostUrl + id).subscribe(data => {
       this.closeEditBox();
       this.refreshList();
     });
+  }
 
+  deleteEmployeeDirect(id) {
+    this.http.delete(this.hostUrl + id).subscribe(data => {
+      this.refreshList();
+    })
   }
 
   refreshList() {
-    this.http.get('http://localhost:8080/employee/list').subscribe(data => {
+    this.http.get(this.hostUrl).subscribe(data => {
       // Read the result field from the JSON response.
       this.employees = data;
     });
