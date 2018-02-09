@@ -10,15 +10,17 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { UserLoginComponent } from './user-login/user-login.component';
-import { RouterModule} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserLoginComponent,
-    MainPageComponent
+    MainPageComponent,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -29,20 +31,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     HttpClientModule,
     ReactiveFormsModule,
     NgbModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        component: AppComponent
-      },
-      {
-        path:'app-user-login',
-        component: UserLoginComponent
-      },
-      {
-        path: 'app-main-page',
-        component: MainPageComponent
-      }
-   ]),
+    AppRoutingModule,
     FormsModule
   ],
   providers: [],

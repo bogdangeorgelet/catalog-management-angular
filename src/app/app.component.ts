@@ -10,7 +10,6 @@ import {tokenReference} from '@angular/compiler';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent{
-  title = "Welcome to Catalxog Management Application";
-}
+
+export class AppComponent{}
 

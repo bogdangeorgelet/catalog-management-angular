@@ -1,9 +1,9 @@
-<div [ngClass]='classes'><h1 style='text-align: center; padding: 20px;'>All employees</h1>
+<div [ngClass]='classes'>
+  <h1 class="main-page-title">All employees</h1>
   <div style='text-align: center; padding-bottom: 20px'>
     <button type="button" class="btn btn-primary" (click)='openAddBox()'>Add employee</button>
     <button type="button" class="btn btn-success" (click)='refreshList();$event.target.blur()'>Refresh list</button>
   </div>
-  <router-outlet></router-outlet>
   <div class='mat-elevation-z8' style='margin: 0 10% 0 10%'>
     <table class="table table-inverse">
       <thead>

@@ -1,78 +1,55 @@
-// .contentRows:hover {
-//   background-color: #53575e;
-// }
-
-// .blurred {
-//   filter: blur(5px);
-// }
-
-// .employeeModal {
-//   width: 50%;
-//   height: 50%;
-//   background-color: white;
-//   position: absolute;
-//   left: 25%;
-//   top: 25%;
-//   z-index: 999;
-//   border-radius: 25px;
-//   border: solid 1px #aaa
-// }
 
 
-// .content p {
-//   text-align: center;
-//   color:black;
-// }
 
-// .header-container {
-//   width: 100%;
-//   font-size: 17px;
-//   position: fixed;
-//   // background-color: #fff;
-//   z-index: 9999;
-//   padding-top: 15px;
-//   float: left;
-// }
+.content p {
+  text-align: center;
+  color:black;
+}
 
-// .left-col {
-//   width: 50%;
-//   float: left;
-//   padding-left: 25px;
-// }
+.header-container {
+  width: 100%;
+  font-size: 17px;
+  position: fixed;
+  // background-color: #fff;
+  z-index: 9999;
+  padding-top: 15px;
+  float: left;
+}
 
-// .right-col {
-//   width: 50%;
-//   float: right;
-//   padding-top: 15px;
-// }
+.left-col {
+  width: 50%;
+  float: left;
+  padding-left: 25px;
+}
 
-// .right-col a {
-//   padding: 15px;
-// }
+.right-col {
+  width: 50%;
+  float: right;
+  padding-top: 15px;
+}
 
-// .main-content-container {
-//   position: relative;
-//   background-color: #fff;
-//   width: 100%;
-//   float: left;
-// }
+.right-col a {
+  padding: 15px;
+}
 
-// .footer-container {
-//   width: 100%;
-//   float: left;
-// }
+.main-content-container {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  float: left;
+}
 
-// .main-content-section {
-//   position: relative;
-//   float: right;
-//   right: 50%;
-//   width: 62%;
-//   top: 300px;
-// }
+.footer-container {
+  width: 100%;
+  float: left;
+}
 
-// .main-content-sub-section {
-
-// }
+.main-content-section {
+  position: relative;
+  float: right;
+  width: 62%;
+  top: 300px;
+}
 
 .contentRows:hover {
     background-color: #53575e;
