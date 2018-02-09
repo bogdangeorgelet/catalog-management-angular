@@ -10,7 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { UserLoginComponent } from './user-login/user-login.component';
-import { RouterModule} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
@@ -31,24 +31,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
     HttpClientModule,
     ReactiveFormsModule,
     NgbModule,
-    RouterModule.forRoot([
-      { path: '', 
-        redirectTo: '/app-welcome-page', 
-        pathMatch: 'full'
-      },
-      {
-        path: 'app-welcome-page',
-        component: WelcomePageComponent
-      },
-      {
-        path:'app-user-login',
-        component: UserLoginComponent
-      },
-      {
-        path: 'app-main-page',
-        component: MainPageComponent
-      }
-   ]),
+    AppRoutingModule,
     FormsModule
   ],
   providers: [],
