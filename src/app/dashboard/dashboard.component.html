@@ -1,0 +1,79 @@
+<div class='mat-elevation-z8 dashboard'>
+  <div class="header">
+    <h3 class="header-title">List of employees</h3>  
+  </div>
+  <table class="table table-inverse dashboard-table">
+    <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class='contentRows' *ngFor='let employee of employees' (click)="openInfoBox(employee)">
+      <td>{{employee.firstName}}</td>
+      <td>{{employee.lastName}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class='dashboardModal' *ngIf='showEmployeeInfo'>
+  <div class='row' style='padding-top: 5%'>
+    <div class='col-2'></div>
+    <div class='col-8'>
+      <div class="row" style='display: block'>
+        <div class="container">
+          <form autocomplete="off" spellcheck="false">
+            <div class="form-group">
+              <label for="formGroupExampleInput2">First name</label>
+              <input type="text" class="form-control" [(ngModel)]='modalEmployee.firstName' name='firstName'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput3">Last name</label>
+              <input type="text" class="form-control" [(ngModel)]='modalEmployee.lastName' name='lastName'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput4">Age</label>
+              <input type="text" class="form-control" [(ngModel)]='modalEmployee.age' name='age'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput5">Years in the company</label>
+              <input type="text" class="form-control" [(ngModel)]='modalEmployee.years' name='years'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput6">Department</label>
+              <input type="text" class="form-control" [(ngModel)]='modalEmployee.department' name='department'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput7">Used Technology</label>
+              <input type="text" class="form-control" [(ngModel)]='modalEmployee.usedTechnology' name='usedTechnology'>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput8">Company name</label>
+              <input type="text" class="form-control" [(ngModel)]='modalEmployee.companyEntity.name' name='company'>
+            </div>
+            <div class='row text-center pt-3'>
+            </div>
+            <div class='row text-center pt-4'>
+              <div class='col-2'>
+                <button type="button" class="btn btn-success" (click)='closeInfoBox()'>Close</button>
+              </div>
+              </div>
+          </form>
+
+          <div *ngIf='error' class='text-center'>
+            <p>
+              <ngb-alert type='danger' [dismissible]="true" (close)="closeAlert()">
+                <strong>Error!</strong> {{errorMessage}}
+              </ngb-alert>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='col-2'></div>
+
+  </div>
+</div>

@@ -2,3 +2,23 @@
     text-align: center;
     margin: 128px 180px 18px 170px;
 }
+
+.contentRows:hover {
+    background-color: #53575e;
+  }
+  
+  .blurred {
+    filter: blur(5px);
+  }
+  
+  .employeeModal {
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    left: 25%;
+    top: 10%;
+    z-index: 999;
+    border-radius: 25px;
+    border: solid 1px #aaa;
+  }

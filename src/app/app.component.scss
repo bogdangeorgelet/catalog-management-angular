@@ -1,6 +1,4 @@
 
-
-
 .content p {
   text-align: center;
   color:black;
@@ -10,7 +8,6 @@
   width: 100%;
   font-size: 17px;
   position: fixed;
-  // background-color: #fff;
   z-index: 9999;
   padding-top: 15px;
   float: left;
@@ -51,23 +48,5 @@
   top: 300px;
 }
 
-.contentRows:hover {
-    background-color: #53575e;
-  }
-  
-  .blurred {
-    filter: blur(5px);
-  }
-  
-  .employeeModal {
-    width: 20%;
-    height: 20%;
-    background-color: white;
-    position: absolute;
-    left: 25%;
-    top: 25%;
-    z-index: 999;
-    border-radius: 25px;
-    border: solid 1px #aaa
-  }
+
   

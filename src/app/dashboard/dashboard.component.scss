@@ -1,0 +1,43 @@
+.dashboard {
+    position: relative;
+    margin: 3% 10% 0 10%
+}
+
+.header-title {
+    position: absolute;
+    margin-top: 146px;
+    left: -10%;
+}
+
+.dashboard-table {
+    width: 50% !important;
+    color: #fff;
+    background-color: #292b2c;
+    position: absolute;
+    left: -10%;
+    float: left;
+    margin-top: 200px;
+}
+
+.contentRows:hover {
+    background-color: #53575e;
+  }
+  
+  .blurred {
+    filter: blur(5px);
+  }
+
+.dashboardModal {
+    width: 40%;
+    background-color: white;
+    position: absolute;
+    left: 25%;
+    top: 42%;
+    z-index: 999;
+    border-radius: 25px;
+    border: solid 1px #aaa;
+}
+
+.dashboardModal .btn-success {
+    margin-bottom: 20px;
+}
