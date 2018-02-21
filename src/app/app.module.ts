@@ -14,7 +14,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {LoginAppModule} from "./login/login.app.module";
 import { EmployeeServiceService } from './employee-service.service';
+import { LoginComponent, AuthGuard, AdminGuard } from './login/login.component';
+import { ShopComponent } from './shop/shop.component';
+import { AdminComponent } from './shop/admin/admin.component';
+import { ClientComponent } from './shop/client/client.component';
+import { CustomerComponent } from './shop/admin/customer/customer.component';
 
 
 @NgModule({
@@ -23,7 +29,12 @@ import { EmployeeServiceService } from './employee-service.service';
     UserLoginComponent,
     MainPageComponent,
     WelcomePageComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginComponent,
+    ShopComponent,
+    AdminComponent,
+    ClientComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -32,12 +43,13 @@ import { EmployeeServiceService } from './employee-service.service';
     MdTableModule,
     CdkTableModule,
     HttpClientModule,
+    LoginAppModule,
     ReactiveFormsModule,
     NgbModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [EmployeeServiceService],
+  providers: [EmployeeServiceService, AuthGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
