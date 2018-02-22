@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppService } from './app-service.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { EmployeeServiceService } from './employee-service.service';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { EmployeeServiceService } from './employee-service.service';
     UserLoginComponent,
     MainPageComponent,
     WelcomePageComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,7 @@ import { EmployeeServiceService } from './employee-service.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [EmployeeServiceService],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
